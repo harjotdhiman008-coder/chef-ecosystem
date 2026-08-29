@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5EBDD;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D8CABB;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7A1820;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold to-yellow-600;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-deep-red text-white px-6 py-3 rounded-xl font-semibold 
+           transition-all duration-200 hover:bg-dark-burgundy hover:-translate-y-0.5 
+           hover:shadow-lg active:translate-y-0 active:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-charcoal text-charcoal px-6 py-3 rounded-xl font-semibold 
+           transition-all duration-200 hover:bg-charcoal hover:text-white 
+           hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-charcoal px-6 py-3 rounded-xl font-semibold 
+           transition-all duration-200 hover:bg-yellow-600 hover:-translate-y-0.5 
+           hover:shadow-lg;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  .max-container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Horizontal scrolling container */
+  .scroll-container {
+    @apply flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-item {
+    @apply snap-start flex-shrink-0;
+  }
+
+  /* Glass effect (subtle, not overdone) */
+  .glass-subtle {
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+
+  /* Focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-deep-red focus:ring-offset-2 focus:ring-offset-warm-ivory;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
